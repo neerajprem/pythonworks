@@ -9,11 +9,11 @@ SlackChannelName = '#serveralerts'
 SlackUserDisplayName = 'Monit'
 SlackEmojiCode = ':sos:'
 
-def SlackNotif(ServiceName, ServiceMessage):
-    PostData = "Alert : "+ServiceName+" : "+ServiceMessage
+def SlackNotif(SerMessage):
+    PostData = " ".join(SerMessage)
     slack_data = {'text': PostData ,"channel": SlackChannelName ,"username": SlackUserDisplayName , "icon_emoji": SlackEmojiCode }
     response = requests.post(SlackWebHookUrl, data=json.dumps(slack_data),headers={'Content-Type': 'application/json'})
     if response.status_code != 200:
        raise ValueError('Slack Error Code : %s \nError Detail -\n%s' %(response.status_code, response.text))
 
-SlackNotif(sys.argv[1], sys.argv[2])
+SlackNotif(sys.argv[1:])
