@@ -25,7 +25,20 @@ try:
    thread.start_new_thread( cbkiller, ("Thread-7", 6000001, 7000000, ) )
    thread.start_new_thread( cbkiller, ("Thread-8", 7000001, 8000000, ) )
    thread.start_new_thread( cbkiller, ("Thread-9", 8000001, 9000000, ) )
-   thread.start_new_thread( cbkiller, ("Thread-0", 9000001, 10000000, ) )
+   thread.start_new_thread( cbkiller, ("Thread-10", 9000001, 10000000, ) )
+   thread.start_new_thread( cbkiller, ("Thread-11", 10000001, 11000000, ) )
+   thread.start_new_thread( cbkiller, ("Thread-12", 11000001, 12000000, ) )
+   thread.start_new_thread( cbkiller, ("Thread-13", 12000001, 13000000, ) )
+   thread.start_new_thread( cbkiller, ("Thread-14", 13000001, 14000000, ) )
+   thread.start_new_thread( cbkiller, ("Thread-15", 14000001, 15000000, ) )
+   thread.start_new_thread( cbkiller, ("Thread-16", 15000001, 16000000, ) )
+   thread.start_new_thread( cbkiller, ("Thread-16", 16000001, 17000000, ) )
+   thread.start_new_thread( cbkiller, ("Thread-16", 17000001, 18000000, ) )
+   thread.start_new_thread( cbkiller, ("Thread-16", 18000001, 19000000, ) )
+   thread.start_new_thread( cbkiller, ("Thread-16", 19000001, 20000000, ) )
+
+
+
 except:
    print "Error: unable to start thread"
 
