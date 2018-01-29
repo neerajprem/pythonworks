@@ -5,8 +5,8 @@ from couchbase.cluster import Cluster, PasswordAuthenticator
 from random import *
 
 def cbkiller(ThreadName, StartVal , EndVal):
-    cluster = Cluster('couchbase://172.31.4.221')
-    cluster.authenticate(PasswordAuthenticator('admin', 'froggy'))
+    cluster = Cluster('couchbase://<serverip>')
+    cluster.authenticate(PasswordAuthenticator('username', 'password'))
     bucket = cluster.open_bucket('mf-test')
     for inc in range(StartVal,EndVal):
         CBKEY = 'name'+str(random())
