@@ -7,7 +7,7 @@ cluster = Cluster('couchbase://172.31.4.221')
 cluster.authenticate(PasswordAuthenticator('admin', 'froggy'))
 bucket = cluster.open_bucket('mf-test')
 
-for inc in range(1,100):
+for inc in range(1,1000000):
     CBKEY = 'name'+str(random())
     CBVALUE = 'amazing'+str(inc)
     print CBKEY+' : '+CBVALUE
