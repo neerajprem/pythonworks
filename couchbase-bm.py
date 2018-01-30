@@ -15,7 +15,7 @@ def cbkiller(ThreadName, StartVal , EndVal):
         res = bucket.get(CBKEY)
         print ThreadName+' -- '+CBKEY+' : '+res.value
 
-NumThreads = int(sys.argv[1])
+NumThreads = int(sys.argv[1]) + 1
 Doc_Count = int(sys.argv[2])
 Sval = 1
 Eval = Doc_Count
