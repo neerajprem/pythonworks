@@ -11,7 +11,7 @@ def cbkiller(ThreadName, StartVal , EndVal):
     for inc in range(StartVal,EndVal):
         CBKEY = 'name'+str(random())
         CBVALUE = 'amazing'+str(inc)
-        bucket.upsert(CBKEY,CBVALUE)
+        bucket.upsert(CBKEY,CBVALUE, ttl=600)
         res = bucket.get(CBKEY)
         print ThreadName+' -- '+CBKEY+' : '+res.value
 
