@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 import thread
 import sys
 from couchbase.cluster import Cluster, PasswordAuthenticator
@@ -18,16 +17,16 @@ def cbkiller(ThreadName, StartVal , EndVal):
 
 NumThreads = int(sys.argv[1])
 Doc_Count = int(sys.argv[2])
-StartVal = 1
+Sval = 1
+Eval = Doc_Count
 
 for i in range(1, NumThreads):
     try:
-        thread.start_new_thread( cbkiller, ("Thread-"+str(i), StartVal, StartVal+Doc_Count, ) )
+        thread.start_new_thread( cbkiller, ("Thread-"+str(i), Sval, Eval, ) )
+        Sval = Eval + 1
+        Eval = Eval + Doc_Count
     except:
         print "Error: unable to start thread"
-    StartVal = StartVal + Doc_Count + 1
-
+    
 while 1:
-       pass
-
-print "Bye"
+    pass
