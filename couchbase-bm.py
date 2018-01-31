@@ -4,14 +4,20 @@ import sys
 from couchbase.cluster import Cluster, PasswordAuthenticator
 from random import *
 
+CouchbaseServerAddress = 'couchbase://172.31.15.171'
+CouchbaseUsername = 'admin'
+CouchbasePassword = 'froggy'
+CouchbaseBucketName = 'mfl-test'
+KeyExpireTime = 600
+
 def cbkiller(ThreadName, StartVal , EndVal):
-    cluster = Cluster('couchbase://<ip-adress>')
-    cluster.authenticate(PasswordAuthenticator('UN', 'PW'))
-    bucket = cluster.open_bucket('<BUCKET>')
+    cluster = Cluster(CouchbaseServerAddress)
+    cluster.authenticate(PasswordAuthenticator(CouchbaseUsername, CouchbasePassword))
+    bucket = cluster.open_bucket(CouchbaseBucketName)
     for inc in range(StartVal,EndVal):
         CBKEY = 'name'+str(random())
         CBVALUE = 'amazing'+str(inc)
-        bucket.upsert(CBKEY,CBVALUE, ttl=600)
+        bucket.upsert(CBKEY,CBVALUE, KeyExpireTime)
         res = bucket.get(CBKEY)
         print ThreadName+' -- '+CBKEY+' : '+res.value
 
