@@ -25,7 +25,7 @@ def cbkiller( ThreadNumber , StartVal, EndVal):
             JSONVal = VALUE
             bucket.upsert(JSONKey, { "MOONFROG-"+str(JSONVal) : { JSONKey+"amazingvalue" : str( JSONVal*0.9)+"ThisMakesMagic" }, "ADDRESS" : { "Locality":"Cambridge Layout", "Area":"Indiranagar", "Pincode": 560043 }, "Employees" : "100-200", "WEBSITE" : "www.moonfroglabs.com", "CONTACT" : "9986239645", "DEPARTMENTS" : { "DevOps" : { "KeyPerson 1 " : "Neeraj Prem Verma" , "KeyPerson 2" : "Gaurav Tayal"}, "Account" : { "KeyPerson 1 " : "Ashwini Khemka" , "KeyPerson 2" : "Chetan Kejriwal"}, "Human Resource" : { "KeyPerson 1 " : "Deepa Naidu", "KeyPerson 2" : "Surabhi Aswal", "KeyPerson 3" : "Varsha Sharma", "KeyPerson 4" : "Samhita", "KeyPerson 5" : "Adarsh", "KeyPerson 6" : "Navjot Poddar", "Site Reliability Engineering" : { "KeyPerson 1 " : "Mohammad Shafin", "KeyPerson 2" : "Denis DSouza", "KeyPerson 3" : "Koushik Paul" } } } } , ttl = KeyExpireTime, format=couchbase.FMT_JSON)
             print "T# %d - %s : %s " % ( ThreadNumber, JSONKey, str(bucket.get(JSONKey).value) )
-        time.sleep(10)
+        time.sleep(20)
     print "cbkiller over" 
 
 NumThreads = int(sys.argv[1]) + 1
